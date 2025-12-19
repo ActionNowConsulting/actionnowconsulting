@@ -6,7 +6,7 @@
 
 body {
   font-family: "Quicksand", sans-serif;
-  background: #f8f9fa;
+  background: #f0f2f5;
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
@@ -39,7 +39,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: #fafafa;
+  background: #f0f2f5;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 0;
@@ -67,9 +67,7 @@ body {
 }
 
 .nav-logo:focus {
-  outline: 3px solid #21638d;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: none;
 }
 
 .nav-logo-img {
@@ -461,7 +459,6 @@ h2 {
 }
 
 .about-section {
-  background: #f8f9fa;
   padding: 2.5rem;
   border-radius: 12px;
   margin-bottom: 2rem;
@@ -491,7 +488,6 @@ h2 {
 }
 
 .services-section {
-  background: #f8f9fa;
   padding: 0;
   border-radius: 12px;
   margin-bottom: 2rem;
@@ -540,7 +536,7 @@ h2 {
   align-self: flex-start;
   position: relative;
   overflow: hidden;
-  background: #f8f9fa;
+  background: transparent;
   border-radius: 4px;
 }
 
@@ -629,7 +625,6 @@ h2 {
 }
 
 .contact-section {
-  background: #f8f9fa;
   padding: 0;
   border-radius: 12px;
   margin-bottom: 2rem;
@@ -665,7 +660,6 @@ h2 {
 }
 
 .gallery-section {
-  background: #f8f9fa;
   padding: 0;
   border-radius: 12px;
   margin-bottom: 2rem;
@@ -713,10 +707,149 @@ h2 {
 }
 
 .apartments-section {
-  background: #f8f9fa;
   padding: 0;
   border-radius: 12px;
   margin-bottom: 2rem;
+}
+
+.testimonials-section {
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Testimonial Cards */
+#testimonials-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-header {
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+
+/* Star Rating */
+.star-rating {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.star {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #ffc107;
+  display: inline-block;
+}
+
+.star-full {
+  color: #ffc107;
+}
+
+.star-half-wrapper {
+  position: relative;
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.star-half-wrapper .star-empty {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.star-half-wrapper .star-full {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  clip-path: inset(0 50% 0 0);
+  width: 100%;
+}
+
+.star-empty {
+  color: #dee2e6;
+}
+
+/* Alternative star rating using unicode half star */
+.star-half {
+  color: #ffc107;
+  position: relative;
+}
+
+.star-half::after {
+  content: "☆";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #dee2e6;
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+}
+
+.testimonial-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  min-height: 250px;
+}
+
+.testimonial-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  max-height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #495057;
+  margin: 0;
+  min-height: 100px;
 }
 
 .carousel-outer {
@@ -872,7 +1005,7 @@ h2 {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: #fafafa;
+    background: #f0f2f5;
     width: 100%;
     text-align: center;
     transition: left 0.3s ease;
@@ -1070,6 +1203,14 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .testimonial-card {
+    padding: 1.75rem;
+  }
+
+  .testimonial-images {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
   .phone-number,
   .email-address {
     font-size: 1.25rem;
@@ -1222,8 +1363,30 @@ h2 {
   .services-section,
   .contact-section,
   .gallery-section,
-  .apartments-section {
+  .apartments-section,
+  .testimonials-section {
     padding: 0;
+  }
+
+  #testimonials-container {
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .testimonial-name {
+    font-size: 1.25rem;
+  }
+
+  .testimonial-images {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
   }
 
   .about-text h3 {
