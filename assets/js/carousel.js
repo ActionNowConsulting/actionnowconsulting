@@ -1,8 +1,8 @@
 // Before and After Carousel
-(function () {
+var carousel = (function () {
   "use strict";
 
-  const carousel = {
+  const carouselObj = {
     track: null,
     slides: null,
     currentIndex: 0,
@@ -81,9 +81,21 @@
     },
   };
 
+  // Auto-init only if slides already exist (fallback for static HTML)
+  const initCarousel = function() {
+    const outer = document.querySelector(".carousel-outer");
+    if (!outer) return;
+    const slides = outer.querySelectorAll(".carousel-slide");
+    if (slides.length > 0) {
+      carouselObj.init();
+    }
+  };
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => carousel.init());
+    document.addEventListener("DOMContentLoaded", initCarousel);
   } else {
-    carousel.init();
+    initCarousel();
   }
+
+  return carouselObj;
 })();
